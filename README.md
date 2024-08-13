@@ -46,12 +46,12 @@ Sentiment Analysis of Amazon Customer Reviews Using NLTK and VADER
 
 
 
-# Introduction
+## Introduction
 
 This project involves sentiment analysis on Amazon customer reviews using Natural Language Processing (NLP) techniques. The goal is to gain insights into the sentiment behind the reviews by analyzing their text content, performing sentiment scoring, and visualizing the results. This project utilizes the Natural Language Toolkit (NLTK) for basic NLP operations, as well as VADER (Valence Aware Dictionary and sEntiment Reasoner) for sentiment analysis.
 
 
-# Data Source 
+## Data Source 
 
 This dataset contains reviews of fine foods from Amazon, covering a period of over 10 years and including approximately 500,000 reviews up to October 2012. The reviews feature product and user details, ratings, and the text of the review itself. It also includes reviews from various other Amazon categories.
 
@@ -60,7 +60,7 @@ Data Link:
 https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
 
 
-# Data Loading and NLTK Basics
+## Data Loading and NLTK Basics
 
 **Import Libraries**
 
@@ -91,9 +91,9 @@ df.head()
 
 ```
 
-# Exploratory Data Analysis
+## Exploratory Data Analysis
 
-**Count of Reviews by Stars**
+### Count of Reviews by Stars
 
 We begin our exploratory data analysis by visualizing the count of reviews for each star rating in the dataset.
 
@@ -108,7 +108,7 @@ plt.show()
 <img width="538" alt="image" src="https://github.com/user-attachments/assets/99deaf66-c32c-43f6-bf49-e98dfb1e7662">
 
 
-**Helpfulness Ratio Analysis**
+### Helpfulness Ratio Analysis
 
 Next, we calculate the helpfulness ratio, defined as the ratio of the helpfulness numerator to the helpfulness denominator, and analyze its distribution.
 
@@ -128,7 +128,7 @@ plt.show()
 
 
 
-**Review Count by Time**
+### Review Count by Time
 
 We convert the review time from UNIX timestamp to a datetime format and analyze the number of reviews over time.
 
@@ -149,7 +149,7 @@ plt.show()
 
 
 
-**Distribution of Word Count in Reviews**
+### Distribution of Word Count in Reviews
 
 We also analyze the distribution of the number of words in the review text to understand the variability in review length.
 
@@ -168,10 +168,10 @@ plt.show()
 <img width="548" alt="image" src="https://github.com/user-attachments/assets/fd48e65f-abb7-4a20-a72e-1fc5c9a3b524">
 
 
-# Basic NLTK Operations
+## Basic NLTK Operations
 
 
-**Tokenization**
+### Tokenization
 
 
 We tokenize the text in the reviews, breaking it down into individual words.
@@ -197,7 +197,7 @@ tokens[:10]
 ```
 ['This', 'oatmeal', 'is', 'not', 'good', '.', 'Its', 'mushy', ',', 'soft']
 
-**Part-of-Speech Tagging**
+### Part-of-Speech Tagging
 
 We then tag each token with its part of speech (POS) to understand the grammatical structure of the text.
 
@@ -218,7 +218,7 @@ tagged[:10]
  (',', ','),
  ('soft', 'JJ')]
 
-**Named Entity Recognition (NER)**
+### Named Entity Recognition
 
 Finally, we perform named entity recognition to identify entities such as people, organizations, and locations in the text.
 
@@ -257,12 +257,12 @@ entities.pprint()
   ./.)
 
 
-# Sentiment Analysis Techniques
+## Sentiment Analysis Techniques
 
 
 ### VADER Sentiment Scoring
 
-**Import Libraries and Initialize Sentiment Analyzer**
+#### Import Libraries and Initialize Sentiment Analyzer
 
 To perform sentiment analysis, we use NLTK's SentimentIntensityAnalyzer (VADER). We initialize the analyzer and process each review to calculate sentiment scores.
 
@@ -313,7 +313,7 @@ for i, row in tqdm(df.iterrows(), total=len(df)):
 
 
 
-**Compute Sentiment Scores for All Reviews**
+#### Compute Sentiment Scores for All Reviews
 
 We iterate through each review, calculate sentiment scores, and store the results in a dictionary.
 
@@ -327,9 +327,6 @@ vaders
 ```
 
 #### Visualize Sentiment Scores
-
-
-**Compound Score by Amazon Star Review**
 
 We visualize the compound sentiment score, which represents the overall sentiment, by Amazon star rating.
 
@@ -378,7 +375,7 @@ plt.show()
 
 
 
-## Roberta Pretrained Model
+### Roberta Pretrained Model
 
 Use a model trained of a large corpus of data. Transformer model accounts for the words but also the context related to other words.
 
@@ -389,7 +386,7 @@ from scipy.special import softmax
 
 ```
 
-**Load the Model and Tokenizer:**
+#### Load the Model and Tokenizer
 
 Load the pre-trained model and tokenizer for sentiment analysis.
 
@@ -414,7 +411,7 @@ This oatmeal is not good. Its mushy, soft, I don't like it. Quaker Oats is the w
 {'neg': 0.22, 'neu': 0.78, 'pos': 0.0, 'compound': -0.5448}
 
 
-**Analyze the sentiment of a text using the Roberta model:**
+#### Analyze the sentiment of a text using the Roberta model
 
 Here we are goin to analyze the sentiment of a given text using the Roberta model from Hugging Face's transformers library. The process involves tokenizing the text, passing it through the model, and then applying the softmax function to obtain probabilities for negative, neutral, and positive sentiments.
 
@@ -514,7 +511,7 @@ Index(['Id', 'vader_neg', 'vader_neu', 'vader_pos', 'vader_compound',
 
       
 
-## Combine and compare
+### Combine and compare
 
 
 To visualize the relationships between the VADER and RoBERTa sentiment scores with respect to the review Score, we can use Seaborn's pairplot.
@@ -534,7 +531,7 @@ plt.show()
 
 
 
-**Review Examples**
+### Review Examples
 ​
 To find examples where the model scoring and review score differ the most, we can query your DataFrame to find reviews where the model's sentiment score and the review's star rating are at odds. Specifically, we can look at extreme cases like positive sentiment in 1-star reviews and negative sentiment in 5-star reviews. Here's how you might approach it:
 ​
@@ -581,7 +578,7 @@ this was sooooo deliscious but too bad i ate em too fast and gained 2 pds! my fa
 
 
 
-## The Transformers Pipeline
+### The Transformers Pipeline
 
 
 Using the pipeline API from the transformers library is a great way to quickly perform sentiment analysis with pre-trained models. The pipeline function simplifies the process of applying a model to text data, allowing us to easily get sentiment scores or labels.
@@ -595,11 +592,11 @@ sent_pipeline = pipeline("sentiment-analysis")
 
 ```
 
-### Initialize the Pipeline:
+#### Initialize the Pipeline:
 
 **sent_pipeline = pipeline("sentiment-analysis"):**  Creates a sentiment analysis pipeline using a default pre-trained model. By default, it uses a model fine-tuned on sentiment analysis tasks (like distilbert-base-uncased-finetuned-sst-2-english).
 
-### Perform Sentiment Analysis:
+#### Perform Sentiment Analysis:
 
 **sent_pipeline(texts):** Applies sentiment analysis to each text in the texts list. The pipeline returns a list of dictionaries with sentiment labels and scores.
 Print Results:
@@ -631,7 +628,7 @@ print(result)
 [{'label': 'POSITIVE', 'score': 0.9991742968559265}]
 
 
-# Conclusion
+## Conclusion
 
 
 In this project, we explored sentiment analysis using two different approaches: VADER, a rule-based model, and Roberta, a transformer-based model. The comparison between these models allowed us to understand the strengths and weaknesses of each method.
