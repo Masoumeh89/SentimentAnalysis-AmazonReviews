@@ -3,30 +3,64 @@ Sentiment Analysis of Amazon Customer Reviews Using NLTK and VADER
 
 
 
-## Table of Contents
+# Table of Contents
 
 1. [Introduction](#introduction)
+   
 2. [Data Source](#data-source)
-3. [Methodology](#methodology)
-4. [Visualizations](#visualizations)
-5. [Dashboard](#dashboard)
-6. [Discussion](#discussion)
+  
+3. [Data Loading and NLTK Basics](#Data-loading-and-nltk-basics)
+ 
+4. [Exploratory Data Analysis](#exploratory-data-analysis)
+   
+   4.1. [Count of Reviews by Stars](#data-source)
+   
+   4.2. [Helpfulness Ratio Analysis](#Helpfulness Ratio Analysis)
+   
+   4.3. [Review Count by Time](#Review Count by Time)
+   
+   4.4. [Distribution of Word Count in Reviews](#Distribution of Word Count in Reviews)
+   
+5. [Basic NLTK Operations](#basic-nltk-operations)
+    
+   5.1. [Tokenization](#Tokenization)
+    
+   5.2. [Part-of-Speech Tagging](#Part-of-Speech Tagging)
+   
+   5.3. [Named Entity Recognition](#Named Entity Recognition)
+   
+6. [Sentiment Analysis Techniques](#sentiment analysis techniques)
+    
+   6.1. [VADER Sentiment Scoring](#vander-sentiment-scoring)
+    
+   6.2. [Roberta Pretrained Model](#roberta-pretrained-model)
+   
+        6.2.1. [Combine and compare](#combine-and-compare)
+        
+        6.2.2. [Review Examples](#Review Examples)
+        
+   6.3. [The Transformers Pipeline](#The Transformers Pipeline)
+
 7. [Conclusion](#Conclusion)
 
 
 
 
-## Introduction
+# Introduction
 
 This project involves sentiment analysis on Amazon customer reviews using Natural Language Processing (NLP) techniques. The goal is to gain insights into the sentiment behind the reviews by analyzing their text content, performing sentiment scoring, and visualizing the results. This project utilizes the Natural Language Toolkit (NLTK) for basic NLP operations, as well as VADER (Valence Aware Dictionary and sEntiment Reasoner) for sentiment analysis.
 
 
-## Data Source 
+# Data Source 
+
+This dataset contains reviews of fine foods from Amazon, covering a period of over 10 years and including approximately 500,000 reviews up to October 2012. The reviews feature product and user details, ratings, and the text of the review itself. It also includes reviews from various other Amazon categories.
+
+Data Link:
+
+https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
 
 
-
-
-## Data Loading and NLTK Basics
+# Data Loading and NLTK Basics
 
 **Import Libraries**
 
@@ -57,7 +91,7 @@ df.head()
 
 ```
 
-## Exploratory Data Analysis (EDA)
+# Exploratory Data Analysis
 
 **Count of Reviews by Stars**
 
@@ -115,7 +149,7 @@ plt.show()
 
 
 
-## Distribution of Word Count in Reviews
+**Distribution of Word Count in Reviews**
 
 We also analyze the distribution of the number of words in the review text to understand the variability in review length.
 
@@ -134,7 +168,7 @@ plt.show()
 <img width="548" alt="image" src="https://github.com/user-attachments/assets/fd48e65f-abb7-4a20-a72e-1fc5c9a3b524">
 
 
-## Basic NLTK Operations
+# Basic NLTK Operations
 
 
 **Tokenization**
@@ -222,10 +256,11 @@ entities.pprint()
   go/VB
   ./.)
 
-  
+
+# Sentiment Analysis Techniques
 
 
-## VADER Sentiment Scoring
+### VADER Sentiment Scoring
 
 **Import Libraries and Initialize Sentiment Analyzer**
 
@@ -291,7 +326,7 @@ vaders
 
 ```
 
-## Visualize Sentiment Scores
+#### Visualize Sentiment Scores
 
 
 **Compound Score by Amazon Star Review**
@@ -499,7 +534,7 @@ plt.show()
 
 
 
-## Review Examples
+**Review Examples**
 ​
 To find examples where the model scoring and review score differ the most, we can query your DataFrame to find reviews where the model's sentiment score and the review's star rating are at odds. Specifically, we can look at extreme cases like positive sentiment in 1-star reviews and negative sentiment in 5-star reviews. Here's how you might approach it:
 ​
@@ -596,9 +631,9 @@ print(result)
 [{'label': 'POSITIVE', 'score': 0.9991742968559265}]
 
 
-## Conclusion
+# Conclusion
 
-Conclusion
+
 In this project, we explored sentiment analysis using two different approaches: VADER, a rule-based model, and Roberta, a transformer-based model. The comparison between these models allowed us to understand the strengths and weaknesses of each method.
 
 The VADER model is efficient for quick sentiment analysis, especially when dealing with social media text or short comments. However, its rule-based nature can sometimes lead to less nuanced results, particularly when the sentiment is context-dependent.
