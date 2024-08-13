@@ -3,7 +3,7 @@ Sentiment Analysis of Amazon Customer Reviews Using NLTK and VADER
 
 
 
-# Table of Contents
+## Table of Contents
 
 1. [Introduction](#introduction)
    
