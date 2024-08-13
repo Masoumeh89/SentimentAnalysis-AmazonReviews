@@ -13,33 +13,33 @@ Sentiment Analysis of Amazon Customer Reviews Using NLTK and VADER
  
 4. [Exploratory Data Analysis](#exploratory-data-analysis)
    
-   4.1. [Count of Reviews by Stars](#count-of-reviews-by-stars)
+     4.1. [Count of Reviews by Stars](#count-of-reviews-by-stars)
    
-   4.2. [Helpfulness Ratio Analysis](#helpfulness-ratio-analysis)
+     4.2. [Helpfulness Ratio Analysis](#helpfulness-ratio-analysis)
    
-   4.3. [Review Count by Time](#review-count-by-time)
+     4.3. [Review Count by Time](#review-count-by-time)
    
-   4.4. [Distribution of Word Count in Reviews](#distribution-of-word-count-in-reviews)
+     4.4. [Distribution of Word Count in Reviews](#distribution-of-word-count-in-reviews)
    
 5. [Basic NLTK Operations](#basic-nltk-operations)
     
-   5.1. [Tokenization](#tokenization)
+     5.1. [Tokenization](#tokenization)
     
-   5.2. [Part-of-Speech Tagging](#part-of-speech-tagging)
+     5.2. [Part-of-Speech Tagging](#part-of-speech-tagging)
    
-   5.3. [Named Entity Recognition](#named-entity-recognition)
+     5.3. [Named Entity Recognition](#named-entity-recognition)
    
 6. [Sentiment Analysis Techniques](#sentiment-analysis-techniques)
     
-   6.1. [VADER Sentiment Scoring](#vander-sentiment-scoring)
+     6.1. [VADER Sentiment Scoring](#vander-sentiment-scoring)
     
-   6.2. [Roberta Pretrained Model](#roberta-pretrained-model)
+     6.2. [Roberta Pretrained Model](#roberta-pretrained-model)
    
       6.2.1. [Combine and compare](#combine-and-compare)
         
       6.2.2. [Review Examples](#review-examples)
         
-   6.3. [The Transformers Pipeline](#the-transformers-pipeline)
+     6.3. [The Transformers Pipeline](#the-transformers-pipeline)
 
 7. [Conclusion](#Conclusion)
 
